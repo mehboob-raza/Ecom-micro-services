@@ -2,20 +2,22 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const connectDB = require('./config/db');
-
+const cartRoutes = require('./routes/cart');
 
 const app = express();
-const port = 3005;
+const port = process.env.PORT || 3006;
 
+// Middleware
 app.use(cors({ origin: 'http://localhost:3000' }));
-app.use(express.json()); // Add body parser just in case
+app.use(express.json());
 
-const productRoutes = require('./routes/products');
-app.use('/products', productRoutes);
-
+// Connect to MongoDB
 connectDB();
+
+// Routes
+app.use('/cart', cartRoutes);
 
 
 app.listen(port, () => {
-    console.log(`Product Service listening at http://localhost:${port}`);
+    console.log(`Cart Service listening at http://localhost:${port}`);
 });

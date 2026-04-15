@@ -5,6 +5,7 @@ const Transaction = require('../models/Transaction');
 
 const kafka = new Kafka({
     clientId: 'payment-service',
+    // brokers: ['localhost:9092', 'localhost:9094', 'localhost:9095']
     brokers: ['localhost:9092', 'localhost:9094', 'localhost:9095']
 });
 
