@@ -4,10 +4,10 @@ const connectDB = require("./config/db")
 require('dotenv').config()
 
 const app = express()
-const port = 3005
+const port = 3003
 
 app.use(cors({origin:'http://localhost:3000'}))
 connectDB()
 app.listen(port , () => {
-    console.log(`Product Service listening at  http://localhost:${port}`);
+    console.log(`Payment Service listening at  http://localhost:${port}`);
 })
